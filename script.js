@@ -1,15 +1,15 @@
-const countdownDate = new
-Date("2024-03-01T00:00:00") .getTime();
+setInterval(() => {const currentDate = new Date();
+const targetDate = new Date("11:30 Mar 1 2024")
+const timeDifference = targetDate-currentDate;
 
-const updateTimer = ()=> {
-    const now = new Date() .getTime();
-    const distance = countdownDate - now;
+const days = Math.floor(timeDifference / (1000*60*60*24));
+const hours = Math.floor((timeDifference % (1000*60*60*24)) / (1000*60*60));
+const minutes = Math.floor((timeDifference % (1000*60*60)) / (1000*60));
+const seconds = Math.floor((timeDifference % (1000*60)) / 1000);
+// console.log(`Remaining time until 28th February: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds.`);
 
-    const days= Maths.floor(distance / (1000*60*60*24));
-    const hours = Maths.floor((distance %(1000*60*60*24)) / (1000*60*60));
-    const minutes = Maths.floor((distance %(1000*60*60)) / (1000*60));
-    const seconds = Maths.floor((distance %(1000*60)) /1000);
-
-    document.getElementById("timer").innerHTML="EXPIRED";
-}
-};
+document.getElementById("days").innerText = days;
+document.getElementById("hours").innerText = hours;
+document.getElementById("minutes").innerText = minutes;
+document.getElementById("seconds").innerText = seconds;
+});
